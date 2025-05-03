@@ -1,0 +1,47 @@
+rootProject.name = 'logistics-cloud'
+
+// 服务端项目
+include 'server:common:common-core'
+include 'server:common:common-security'
+include 'server:common:common-data'
+
+include 'server:framework:framework-web'
+include 'server:framework:framework-swagger'
+
+include 'server:gateway'
+include 'server:auth'
+
+// WMS服务
+include 'server:services:wms:wms-api'
+include 'server:services:wms:wms-inventory'
+include 'server:services:wms:wms-warehouse'
+include 'server:services:wms:wms-operation'
+include 'server:services:wms:wms-report'
+
+// TMS服务
+include 'server:services:tms:tms-api'
+include 'server:services:tms:tms-route'
+include 'server:services:tms:tms-schedule'
+include 'server:services:tms:tms-tracking'
+
+// 配置项目目录
+project(':server:common:common-core').projectDir = file('server/common/common-core')
+project(':server:common:common-security').projectDir = file('server/common/common-security')
+project(':server:common:common-data').projectDir = file('server/common/common-data')
+
+project(':server:framework:framework-web').projectDir = file('server/framework/framework-web')
+project(':server:framework:framework-swagger').projectDir = file('server/framework/framework-swagger')
+
+project(':server:gateway').projectDir = file('server/gateway')
+project(':server:auth').projectDir = file('server/auth')
+
+project(':server:services:wms:wms-api').projectDir = file('server/services/wms/wms-api')
+project(':server:services:wms:wms-inventory').projectDir = file('server/services/wms/wms-inventory')
+project(':server:services:wms:wms-warehouse').projectDir = file('server/services/wms/wms-warehouse')
+project(':server:services:wms:wms-operation').projectDir = file('server/services/wms/wms-operation')
+project(':server:services:wms:wms-report').projectDir = file('server/services/wms/wms-report')
+
+project(':server:services:tms:tms-api').projectDir = file('server/services/tms/tms-api')
+project(':server:services:tms:tms-route').projectDir = file('server/services/tms/tms-route')
+project(':server:services:tms:tms-schedule').projectDir = file('server/services/tms/tms-schedule')
+project(':server:services:tms:tms-tracking').projectDir = file('server/services/tms/tms-tracking') 
