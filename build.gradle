@@ -48,6 +48,12 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok'
         
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        // 新增：所有子项目默认引入Spring Web依赖，便于全局异常处理等功能
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        // 新增：JWT支持
+        implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+        runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+        runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
     }
 
     test {

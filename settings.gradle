@@ -36,7 +36,6 @@ project(':server:gateway').projectDir = file('server/gateway')
 project(':server:auth').projectDir = file('server/auth')
 
 project(':server:services:wms:wms-api').projectDir = file('server/services/wms/wms-api')
-project(':server:services:wms:wms-inventory').projectDir = file('server/services/wms/wms-inventory')
 project(':server:services:wms:wms-warehouse').projectDir = file('server/services/wms/wms-warehouse')
 project(':server:services:wms:wms-operation').projectDir = file('server/services/wms/wms-operation')
 project(':server:services:wms:wms-report').projectDir = file('server/services/wms/wms-report')

@@ -89,6 +89,12 @@ server/
    - feature/*: 功能分支
    - hotfix/*: 紧急修复分支
 
+## 日志配置约定
+
+- 所有后端微服务（包括后续新增的服务）都必须在各自的 `src/main/resources` 目录下放置一份 `logback-spring.xml` 日志配置文件。
+- 推荐使用 `server/common/common-core/src/main/resources/logback-spring.xml` 作为统一模板，复制到各服务后可根据实际需要微调。
+- 这样可以保证日志格式、输出路径、日志级别等在所有服务中保持一致，便于后续运维和日志收集。
+
 ## 开发指南
 
 1. 环境准备
