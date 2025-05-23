@@ -17,10 +17,10 @@ Logistics Cloud 是一个基于微服务架构的现代物流管理系统，提�
      - [X]  统一响应对象
      - [X]  全局异常处理
      - [X]  通用工具类
-   - [ ]  common-security: 安全组件
-     - [ ]  JWT工具类
-     - [ ]  安全配置
-     - [ ]  权限注解
+   - [X]  common-security: 安全组件
+     - [X]  JWT工具类
+     - [X]  安全配置
+     - [X]  权限注解
    - [ ]  common-data: 数据访问组件
      - [ ]  多租户支持
      - [ ]  数据权限
@@ -153,6 +153,7 @@ Logistics Cloud 是一个基于微服务架构的现代物流管理系统，提�
 
 - 构建工具：Gradle 8.7
 - 基础框架：Spring Boot 3.2.x, Spring Cloud 2023+
+- 服务注册与配置中心：Nacos 2.x（注册中心+配置中心，推荐云原生场景，支持动态服务发现与配置热更新）
 - 数据持久化：Spring Data JPA, PostgreSQL
 - 安全框架：Spring Security, JWT
 - API文档：Swagger/OpenAPI 3.0
@@ -296,3 +297,33 @@ logistics-cloud/
 ## 许可证
 
 MIT License
+
+## 技术选型说明
+
+- **注册中心/配置中心：Nacos**
+  - 负责所有微服务的服务注册与发现，支持动态扩缩容和弹性治理。
+  - 统一管理各环境的配置，支持配置热更新。
+  - 云原生友好，易于与Kubernetes等平台集成。
+  - 相关文档与使用方式详见 [Nacos官方文档](https://nacos.io/zh-cn/docs/).
+
+## 下一步建议（Nacos 主导实践）
+
+1. **Nacos 快速入门**
+   - 推荐先用官方 Docker 镜像本地启动 Nacos，便于开发和测试。
+   - 生产环境可用集群部署，支持高可用。
+
+2. **微服务集成 Nacos**
+   - 各 Spring Cloud 微服务在 `application.yml` 中配置 Nacos 地址，实现服务注册与发现。
+   - 配置中心功能可将各服务的配置文件统一放到 Nacos 管理，支持动态刷新。
+
+3. **推荐目录结构**
+   ```
+   server/registry/         # 可选，记录Nacos相关文档或脚本
+   ```
+
+4. **文档与团队协作**
+   - 在 README 或专门文档中记录 Nacos 的启动、接入、常见问题等。
+
+---
+
+如需我帮你生成 Nacos 本地启动脚本、Spring Cloud 微服务 Nacos 配置模板、或详细的 Nacos 使用文档，请随时告知！

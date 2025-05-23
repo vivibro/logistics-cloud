@@ -119,4 +119,44 @@ server/
 
    # 运行容器
    docker-compose up -d
-   ``` 
+   ```
+
+## Nacos 注册中心与配置中心使用说明
+
+### 1. 依赖引入
+
+已在根 build.gradle 中为所有子项目引入如下依赖：
+- com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery
+- com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config
+
+### 2. application.yml 基础配置示例
+
+```yaml
+spring:
+  application:
+    name: your-service-name
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848   # Nacos服务地址
+      config:
+        server-addr: 127.0.0.1:8848   # Nacos服务地址
+        file-extension: yaml
+```
+
+### 3. 启动Nacos（本地开发）
+
+推荐使用官方Docker镜像：
+```bash
+docker run -d --name nacos-standalone -e MODE=standalone -p 8848:8848 nacos/nacos-server:2.3.0
+```
+
+访问 http://localhost:8848/nacos 默认账号密码：nacos/nacos
+
+### 4. 常见问题
+- 各服务的 spring.application.name 必须唯一。
+- Nacos配置中心支持多环境（dev/test/prod）和动态刷新。
+- 生产环境建议使用Nacos集群+MySQL持久化。
+
+### 5. 参考文档
+- [Nacos官方文档](https://nacos.io/zh-cn/docs/) 
